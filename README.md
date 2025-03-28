@@ -1,4 +1,4 @@
-ESP8266 Module Manual
+<h1>ESP8266 Module Manual</h1>
 This repository provides essential documentation for working with the ESP8266 Wi-Fi module. It includes step-by-step instructions on:
 
 Flashing the Firmware – Guide on how to flash firmware onto the ESP8266 using different tools.
