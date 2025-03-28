@@ -1,52 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESP8266 Module Manual</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1e1e2e;
-            color: #ffffff;
-            padding: 20px;
-            text-align: center;
-        }
-        h1 {
-            color: #ffcc00;
-        }
-        .section {
-            background-color: #33334d;
-            padding: 15px;
-            margin: 10px auto;
-            width: 80%;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
-        }
-        h2 {
-            color: #00ffcc;
-        }
-        p {
-            font-size: 16px;
-        }
-    </style>
-</head>
-<body>
-    <h1>ESP8266 Module Manual</h1>
-    
-    <div class="section">
-        <h2>How to Flash</h2>
-        <p>Follow the steps to flash firmware onto the ESP8266 using tools like esptool.py or NodeMCU flasher.</p>
-    </div>
-    
-    <div class="section">
-        <h2>How to Boot</h2>
-        <p>Learn about the ESP8266 boot modes and how to configure them for flashing or normal operation.</p>
-    </div>
-    
-    <div class="section">
-        <h2>How to Access</h2>
-        <p>Connect to the ESP8266 via serial, Wi-Fi, or AT commands to start communication.</p>
-    </div>
-</body>
-</html>
+# 🌟 **ESP8266 Module Manual** 🚀
+
+Welcome to the **ESP8266 Module Manual**, your ultimate guide to flashing, booting, and accessing the ESP8266 Wi-Fi module!
+
+---
+
+## 🔥 **How to Flash**
+
+1. Connect your ESP8266 to your computer using a USB-to-serial adapter.
+2. Download and install **esptool.py** or **NodeMCU Flasher**.
+3. Put the ESP8266 in **flash mode** by pressing the **GPIO0** button while resetting.
+4. Run the following command:
+
+   ```bash
+   esptool.py --port /dev/ttyUSB0 write_flash 0x00000 firmware.bin
+   ```
+5. Wait for the flashing process to complete and restart the module.
+
+---
+
+## ⚡ **How to Boot**
+
+ESP8266 has three boot modes:
+
+- **Normal Boot** 🟢 – Boots the firmware normally.
+- **Flash Mode** 🔵 – Used for uploading firmware.
+- **UART Boot** 🔴 – Debugging mode.
+
+| Boot Mode  | GPIO0 | GPIO2 | GPIO15 |
+|------------|-------|-------|--------|
+| Normal Boot | 1 | 1 | 0 |
+| Flash Mode | 0 | 1 | 0 |
+| UART Boot | 1 | 0 | 0 |
+
+Set the pins accordingly to enter the desired mode.
+
+---
+
+## 🌐 **How to Access**
+
+1. Connect to the ESP8266 using **serial communication**:
+   ```bash
+   screen /dev/ttyUSB0 115200
+   ```
+
+2. Use **AT commands** to check the module:
+   ```bash
+   AT
+   AT+CWLAP  # List available Wi-Fi networks
+   AT+CWJAP="SSID","PASSWORD"  # Connect to Wi-Fi
+   ```
+
+3. Access the ESP8266 **via Web Server**:
+   - Upload an HTTP server firmware.
+   - Connect to the ESP8266’s IP (default **192.168.4.1** in AP mode).
+
+---
+
+### 🎯 **Stay Connected!**
+
+💬 Need help? Join our community discussions! 🚀
+
+🔗 **[Official ESP8266 Documentation](https://espressif.com/)**  
+📌 **[GitHub Repo](https://github.com/your-repo-link)**
+
+🌍 Happy Hacking! 😃
